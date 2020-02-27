@@ -10,6 +10,11 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 
 # Aliases
 alias ll='ls -FGlAhp' 
+alias vim='mvim -v'
+alias rm-swp="find . -type f -name \".*.swp\" -exec rm -f {} \\;"
+alias ls-swp="find . -type f -name \".*.swp\""
+alias shsource="source ~/.bash_profile"
+alias shedit="vim ~/.bash_profile"
 
 # Functions
 cd() { builtin cd "$@"; ll; }   
@@ -24,6 +29,20 @@ ii() {
 	#echo -e "\n${RED}DNS Configuration:$NC " ; scutil --dns
 	echo
 }
+parse_git_branch() {
+		git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+if [ -f ~/.git-completion.bash ]; then
+	. ~/.git-completion.bash
+fi
+
+eval "$(direnv hook bash)"
+
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+HISTSIZE=""
+
+fortune | pokemonsay
 ```
 
 ## Install stuff

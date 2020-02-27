@@ -195,3 +195,10 @@ command! -bang -nargs=* Ag
 set noexpandtab
 
 ```
+
+## Node
+
+1. Install nvm
+
+```curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash```
+
